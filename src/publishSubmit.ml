@@ -225,11 +225,11 @@ module GH = struct
     end;
     user, token
 
-(** Forks the repository (idempotent - returns existing fork if one exists).
-    Returns [fork_name] i.e. the name of the fork of the opam-repository that
-    the user is targeting, as it exists on their GitHub account. It may differ
-    from the repo name if the user renamed it or if GitHub automatically renamed
-    it to avoid conflicts. A canonical example is ["opam-repository-1"]. *)
+  (** Forks the repository (idempotent - returns existing fork if one exists).
+      Returns [fork_name] i.e. the name of the fork of the opam-repository that
+      the user is targeting, as it exists on their GitHub account. It may differ
+      from the repo name if the user renamed it or if GitHub automatically renamed
+      it to avoid conflicts. A canonical example is ["opam-repository-1"]. *)
   let fork token (repo_owner, repo_name) : string =
     let check uri =
       let not_found = API.code_handler ~expected_code:`Not_found (fun _ ->
